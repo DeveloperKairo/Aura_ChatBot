@@ -64,7 +64,7 @@ Este projeto foi construído com as seguintes tecnologias:
 
 ## 🎬 AURA em Ação!
 
-![Demonstração do AURA em ação](https://i.imgur.com/KAdy7nj.gif)
+![Demonstração do AURA em ação](assets/aura_gif.gif)
 
 ---
 
@@ -74,7 +74,7 @@ Pronto para conversar com AURA? Siga os passos abaixo:
 
 ### 1. Pré-requisitos
 
-- **Python 3.7+** instalado.
+- **Python 3.9+** instalado.
 - **Git** instalado.
 
 ### 2. Configuração do Ambiente
@@ -112,6 +112,8 @@ python -m venv venv
 ```bash
 venv\Scripts\activate
 ```
+⚠️ Atenção (Windows): Se você receber uma mensagem dizendo que a execução de scripts está desabilitada, execute o PowerShell como administrador e digite:
+"Set-ExecutionPolicy RemoteSigned"
 
 - No Linux/macOS:
 
