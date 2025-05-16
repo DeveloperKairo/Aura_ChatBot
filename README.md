@@ -106,7 +106,7 @@ GOOGLE_API_KEY="SUA_CHAVE_API_DO_GEMINI_AQUI"
 4. **(Recomendado) Crie e ative um ambiente virtual:**
 
 ```bash
-python -m venv venv
+py -m venv venv
 ```
 
 - No Windows:
@@ -134,7 +134,7 @@ pip install -r requirements.txt
 Com tudo pronto, execute:
 
 ```bash
-python main.py
+py main.py
 ```
 
 AURA irá te cumprimentar e pedir um nome ou apelido para personalizar a conversa e salvar o histórico.
