@@ -1,70 +1,141 @@
-# AURA - Seu Amigo Virtual para Apoio Emocional
+<div align="center">
 
-AURA (Amigo Virtual para Resiliência e Autoconhecimento) é um chatbot de apoio emocional personalizado, desenvolvido com Python e a API Google Gemini. Este projeto foi criado como parte de um hackathon, com foco em utilidade, criatividade, eficiência e apresentação.
+# ✨ AURA - Seu Amigo Virtual para Apoio Emocional ✨
 
-## Visão Geral
+**Um projeto desenvolvido com carinho para a Imersão IA da Alura em parceria com o Google Gemini!**
 
-AURA visa oferecer um primeiro ponto de contato para pessoas que precisam de apoio emocional. Utilizando o poder da IA Generativa do Google, AURA busca:
+[![Evento](https://img.shields.io/badge/Imersão%20IA-Alura%20%26%20Google-%230073E6?style=for-the-badge&logo=google&logoColor=white&labelColor=0B579B)](https://www.alura.com.br/imersao-ia)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Gemini API](https://img.shields.io/badge/Gemini%20API-4A89F3?style=for-the-badge&logo=google-gemini&logoColor=white)](https://ai.google.dev/docs/gemini_api_overview)
 
-* **Utilidade:** Oferecer respostas empáticas, utilizando o `system_instruction` do Gemini para guiar a IA a entender nuances de sentimento e oferecer recursos relevantes.
-* **Criatividade:** Personalizar a conversa com base no histórico do usuário (salvo localmente) e sugerir recursos como exercícios de respiração ou links para meditação.
-* **Eficácia:** Ajudar o usuário a se sentir ouvido e oferecer estratégias de enfrentamento simples e eficazes, sempre com o lembrete de procurar ajuda profissional quando necessário.
-* **Apresentação:** Interface de linha de comando (CLI) limpa, acolhedora, com avisos claros de privacidade e segurança de dados (foco na transparência).
+</div>
 
-**Importante:** AURA não substitui aconselhamento médico ou terapêutico profissional. Em caso de crise ou sofrimento intenso, procure ajuda especializada.
+Bem-vindo(a) ao universo de AURA (Amigo Virtual para Resiliência e Autoconhecimento)! 🌟
 
-## Estrutura do Projeto
-/aura_chatbot
-    |-- /app                  # Contém a lógica principal da aplicação
-    |-- /config               # Arquivos de configuração (ex: API Key)
-    |-- /data                 # Dados utilizados/gerados (históricos, recursos)
-    |-- main.py               # Ponto de entrada da CLI
-    |-- requirements.txt      # Dependências
-    |-- README.md             # Este arquivo
-    |-- .env.example          # Exemplo para o arquivo .env
-    |-- .gitignore            # Arquivos a serem ignorados pelo Git
+AURA é mais que um chatbot; é um companheiro virtual projetado para oferecer um espaço seguro, acolhedor e confidencial. Aqui, você pode expressar seus sentimentos, encontrar um ombro amigo digital, receber apoio empático e acessar recursos práticos para promover seu bem-estar emocional.
 
-## Como Rodar o Projeto
+---
 
-1.  **Clone o Repositório:**
+## 💖 Conheça AURA
+
+Em um mundo cada vez mais conectado, mas muitas vezes solitário, AURA surge como uma luz guia. Seu propósito é:
+
+* **Ouvir sem julgamentos:** Sinta-se à vontade para compartilhar o que está em seu coração.
+* **Oferecer conforto e empatia:** Respostas pensadas para te acolher e te fazer sentir compreendido(a).
+* **Sugerir caminhos para o bem-estar:** Acesso a dicas e recursos simples, como exercícios de respiração e meditação.
+* **Lembrar da importância do autocuidado:** Pequenos lembretes para que você priorize sua saúde mental.
+* **Incentivar a busca por ajuda profissional:** Quando necessário, AURA gentilmente sugere a procura por especialistas.
+
+AURA utiliza o poder da Inteligência Artificial do Google Gemini para criar interações que buscam ser o mais humanas e compreensivas possível, sempre com foco no seu bem-estar.
+
+---
+
+## 🚀 Funcionalidades Principais
+
+* 🗣️ **Conversas Empáticas:** Diálogos que se adaptam para oferecer suporte emocional.
+* 🧘 **Recursos de Bem-Estar:** Sugestões de exercícios de respiração, meditação e técnicas de grounding.
+* 🧠 **Memória Afetiva:** Histórico de conversas (salvo localmente e com aviso de privacidade) para personalizar interações futuras e "lembrar" de você.
+* ⚠️ **Alerta de Crise:** Identificação de palavras-chave que indicam sofrimento intenso, com sugestão imediata para procurar ajuda profissional (CVV 188).
+* 💻 **Interface Simples:** Interação via linha de comando (CLI), focada na conversa.
+* 🛡️ **Privacidade em Primeiro Lugar:** Suas conversas são suas. O histórico é salvo localmente no seu computador.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+Este projeto foi construído com as seguintes tecnologias:
+
+* **Python:** Linguagem principal do projeto.
+* **Google Gemini API:** O cérebro por trás da inteligência e capacidade de conversação empática do AURA.
+* **python-dotenv:** Para gerenciar de forma segura as chaves de API.
+
+<div align="center">
+
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Gemini API](https://img.shields.io/badge/Gemini%20API-4A89F3?style=for-the-badge&logo=google-gemini&logoColor=white)](https://ai.google.dev/docs/gemini_api_overview)
+
+</div>
+
+---
+
+## 🎬 AURA em Ação!
+
+![Demonstração do AURA em ação](https://i.imgur.com/KAdy7nj.gif)
+
+---
+
+## ⚙️ Guia de Execução e Instalação
+
+Pronto para conversar com AURA? Siga os passos abaixo:
+
+### 1. Pré-requisitos
+
+* **Python 3.7+** instalado.
+* **Git** instalado.
+
+### 2. Configuração do Ambiente
+
+1.  **Clone o repositório:**
+    Abra seu terminal e execute o comando:
     ```bash
-    git clone [URL_DO_SEU_REPOSITORIO]
-    cd aura_chatbot
+    git clone [https://www.google.com/search?q=https://github.com/DeveloperKairo/Aura_ChatBot.git](https://www.google.com/search?q=https://github.com/DeveloperKairo/Aura_ChatBot.git)
     ```
 
-2.  **Crie um Ambiente Virtual (Recomendado):**
+2.  **Navegue até a pasta do projeto:**
+    ```bash
+    cd Aura_ChatBot
+    ```
+
+3.  **Crie o arquivo de ambiente `.env`:**
+    Na raiz do projeto (`Aura_ChatBot/`), crie um arquivo chamado `.env`. Dentro dele, adicione sua chave da API do Google Gemini:
+    ```env
+    GOOGLE_API_KEY="SUA_CHAVE_API_DO_GEMINI_AQUI"
+    ```
+    *Substitua `SUA_CHAVE_API_DO_GEMINI_AQUI` pela sua chave real.*
+
+4.  **(Recomendado) Crie e ative um ambiente virtual:**
     ```bash
     python -m venv venv
-    # No Windows
-    venv\Scripts\activate
-    # No macOS/Linux
-    source venv/bin/activate
     ```
+    * No Windows:
+        ```bash
+        venv\Scripts\activate
+        ```
+    * No Linux/macOS:
+        ```bash
+        source venv/bin/activate
+        ```
 
-3.  **Instale as Dependências:**
+5.  **Instale as dependências:**
+    Com o ambiente virtual ativado, instale as bibliotecas necessárias:
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Configure a API Key do Google Gemini:**
-    * Crie um arquivo chamado `.env` na raiz do projeto.
-    * Adicione sua chave da API do Google Gemini ao arquivo `.env`:
-        ```
-        GOOGLE_API_KEY="SUA_CHAVE_API_AQUI"
-        ```
-    * Você pode obter uma chave de API no [Google AI Studio](https://aistudio.google.com/).
+### 3. Executando o AURA 🚀
 
-5.  **Execute a Aplicação:**
-    ```bash
-    python main.py
-    ```
+Após a configuração, execute o comando:
+```bash
+python main.py
+AURA irá te cumprimentar e pedir um nome ou apelido para personalizar a conversa e salvar o histórico.
 
-6.  Siga as instruções no terminal para interagir com AURA. Digite "sair" para encerrar.
+### 4. Como Interagir 💬
+   
+Simplesmente digite suas mensagens e pressione Enter.
+Para encerrar a conversa, digite sair, exit ou tchau.
+AURA tentará entender suas emoções e oferecer o melhor suporte possível!
+🔒 Aviso de Privacidade
+Levamos sua privacidade a sério.
 
-## Funcionalidades Futuras (Ideias para Evolução)
+Suas conversas com AURA podem ser salvas localmente no seu computador, na pasta data/user_histories/, para ajudar a personalizar futuras interações e permitir que AURA "se lembre" de você.
+Estes dados não são compartilhados com terceiros.
+Você tem controle sobre esses arquivos e pode excluí-los se desejar (funcionalidade de exclusão via app pode ser implementada no futuro).
 
-* Integração com APIs de meditação guiada ou sons relaxantes.
-* Interface gráfica mais amigável (Web com Flask/Streamlit ou aplicativo Desktop).
-* Sistema de feedback do usuário para melhorar as respostas.
-* Opção para o usuário solicitar a exclusão do seu histórico.
-* Mecanismos mais avançados para detecção de crises e encaminhamento (com consentimento).
+👨‍💻 Desenvolvido Por
+Este projeto foi idealizado e desenvolvido por:
+
+Kairo Kaléo
+
+🙏 Agradecimentos Especiais
+À Alura e ao Google pela incrível iniciativa da Imersão IA, que proporcionou o conhecimento e a inspiração para este projeto.
+Se tiver alguma dúvida ou sugestão, sinta-se à vontade para abrir uma Issue no repositório! Cuide-se! ❤️
