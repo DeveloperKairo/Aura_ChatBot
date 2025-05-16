@@ -1,0 +1,22 @@
+{
+    "breathing_exercise": {
+        "keywords": ["respiração", "ansioso", "acalmar", "estresse"],
+        "text": "Que tal tentarmos um exercício de respiração simples? Inspire profundamente contando até 4, segure por 4 segundos e expire lentamente contando até 6. Repita algumas vezes. Isso pode ajudar a acalmar.",
+        "link": "https://www.youtube.com/watch?v=exemplo_respiracao"
+    },
+    "short_meditation": {
+        "keywords": ["meditação", "mindfulness", "foco", "relaxar"],
+        "text": "Uma pequena pausa para meditação pode ser revigorante. Gostaria de um link para uma meditação guiada curta?",
+        "link": "https://www.youtube.com/watch?v=exemplo_meditacao"
+    },
+    "grounding_technique": {
+        "keywords": ["sobrecarregado", "perdido", "chão"],
+        "text": "Quando se sentir sobrecarregado, tente a técnica 5-4-3-2-1: observe 5 coisas que você pode ver, 4 que pode tocar, 3 que pode ouvir, 2 que pode cheirar e 1 que pode provar. Isso ajuda a trazer você para o momento presente.",
+        "link": null
+    },
+    "professional_help_info": {
+        "keywords": ["desespero", "sem saída", "muito mal", "suicídio"],
+        "text": "Se você está se sentindo em extremo sofrimento ou pensando em se machucar, é muito importante buscar ajuda profissional imediatamente. Você não está sozinho. Considere ligar para o CVV (Centro de Valorização da Vida) no número 188 (ligação gratuita) ou procurar um serviço de emergência.",
+        "link": "https://www.cvv.org.br"
+    }
+}

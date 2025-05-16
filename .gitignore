@@ -1,0 +1,21 @@
+# Arquivo de ambiente com chaves secretas
+.env
+
+# Arquivos de cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Pastas de ambiente virtual 
+venv/
+
+# Pastas de build e distribuição
+build/
+dist/
+*.egg-info/
+
+# Arquivos específicos do sistema operacional ou IDEs 
+.DS_Store
+.vscode/
+.idea/
