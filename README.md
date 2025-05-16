@@ -99,6 +99,8 @@ Na raiz do projeto (`Aura_ChatBot/`), crie um arquivo chamado `.env` e adicione 
 GOOGLE_API_KEY="SUA_CHAVE_API_DO_GEMINI_AQUI"
 ```
 
+**Para conseguir a API KEY acesse o site: https://aistudio.google.com/app/apikey
+
 *Substitua `SUA_CHAVE_API_DO_GEMINI_AQUI` pela sua chave real.*
 
 4. **(Recomendado) Crie e ative um ambiente virtual:**
