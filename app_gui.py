@@ -1,8 +1,6 @@
 import streamlit as st
-from app.chatbot_core import AuraChatbot
-import uuid 
-import time 
-
+from app.chatbot_core import AuraChatbot  # Ajuste conforme sua estrutura de pastas
+import uuid
 
 st.set_page_config(page_title="AURA - Apoio Emocional", page_icon="✨", layout="centered")
 
@@ -19,60 +17,82 @@ st.markdown("""
     .stChatMessage[data-testid="chatAvatarIcon-assistant"] {
         background-color: #fff9c4; /* Amarelo claro para AURA */
     }
-    /* Adicionar um pouco de espaço abaixo do título */
     .stApp > header {
         margin-bottom: 20px;
     }
     h1 {
-        margin-bottom: 0.5em; /* Adiciona espaço abaixo do H1 */
+        margin-bottom: 0.5em;
     }
 </style>
 """, unsafe_allow_html=True)
 
 def initialize_bot(user_id):
-    if "aura_bot" not in st.session_state or st.session_state.user_id != user_id:
-        st.session_state.user_id = user_id
-        st.session_state.aura_bot = AuraChatbot(user_id=user_id)
-        st.session_state.messages = [] 
-        loaded_history = st.session_state.aura_bot.chat_session.history
-        for turn in loaded_history:
-            display_role = "user" if turn.role == "user" else "assistant"
-            text_content = "".join(part.text for part in turn.parts if hasattr(part, 'text'))
-            if text_content: 
-                st.session_state.messages.append({"role": display_role, "content": text_content})
-    return st.session_state.aura_bot
+    try:
+        if "aura_bot" not in st.session_state or st.session_state.user_id != user_id:
+            st.session_state.user_id = user_id
+            st.session_state.aura_bot = AuraChatbot(user_id=user_id)
+            st.session_state.messages = []
+
+            try:
+                loaded_history = st.session_state.aura_bot.chat_session.history
+                for turn in loaded_history:
+                    display_role = "user" if turn.role == "user" else "assistant"
+                    text_content = "".join(part.text for part in turn.parts if hasattr(part, 'text'))
+                    if text_content:
+                        st.session_state.messages.append({
+                            "role": display_role,
+                            "content": text_content
+                        })
+            except Exception as e:
+                st.error(f"Erro ao carregar histórico: {str(e)}")
+    except Exception as e:
+        st.error(f"Falha na inicialização do bot: {str(e)}")
+    return st.session_state.get("aura_bot")
+
+def save_current_conversation():
+    aura_bot = st.session_state.get("aura_bot")
+    if aura_bot:
+        try:
+            aura_bot.end_session()  # Método que salva o histórico da conversa
+            st.success("Conversa anterior salva com sucesso!")
+        except Exception as e:
+            st.error(f"Erro ao salvar a conversa: {e}")
+    else:
+        st.warning("Nenhuma conversa ativa para salvar.")
+
+# Inicializa nome aleatório uma única vez
+if "current_user_id" not in st.session_state:
+    st.session_state.current_user_id = f"Usuário_{str(uuid.uuid4())[:6]}"
+
+if "user_id_confirmed" not in st.session_state:
+    st.session_state.user_id_confirmed = False
 
 # --- Interface Principal ---
 st.title("✨ AURA - Seu Amigo Virtual")
 st.caption("Um espaço seguro para expressar seus sentimentos e encontrar apoio.")
 
-# 1. Gerenciamento do ID do Usuário e Inicialização do Chat
-if "user_id_confirmed" not in st.session_state:
-    st.session_state.user_id_confirmed = False
-
 if not st.session_state.user_id_confirmed:
     st.markdown("---")
     st.subheader("Para começar, como AURA pode te chamar?")
-    placeholder_name = f"Usuário_{str(uuid.uuid4())[:6]}"
-    user_id_input = st.text_input(
-        "Digite seu nome ou um apelido:",
-        key="user_id_input_field",
-        placeholder=f"Ex: {placeholder_name}",
-        label_visibility="collapsed" 
-    )
 
-    if st.button("Iniciar Conversa com AURA", key="start_chat_button", type="primary"):
-        if user_id_input.strip():
-            st.session_state.current_user_id = user_id_input.strip()
-        else:
-            st.session_state.current_user_id = placeholder_name
-        
-        initialize_bot(st.session_state.current_user_id)
-        st.session_state.user_id_confirmed = True
-        st.session_state.welcome_message_shown = False 
-        st.rerun() 
+    with st.form("user_name_form", clear_on_submit=False):
+        user_name = st.text_input(
+            "Digite seu nome ou um apelido:",
+            placeholder=st.session_state.current_user_id,
+            key="user_id_input_field",
+            label_visibility="collapsed"
+        )
+        submitted = st.form_submit_button("Iniciar Conversa com AURA")
+
+        if submitted:
+            if user_name.strip():
+                st.session_state.current_user_id = user_name.strip()
+            st.session_state.user_id_confirmed = True
+            st.session_state.welcome_message_shown = False
+            st.rerun()  # Substitui st.experimental_rerun()
+
 else:
-    aura_bot = initialize_bot(st.session_state.current_user_id) 
+    aura_bot = initialize_bot(st.session_state.current_user_id)
 
     if not st.session_state.get("welcome_message_shown", False):
         st.info(
@@ -90,44 +110,31 @@ else:
         st.session_state.welcome_message_shown = True
         st.markdown("---")
 
-
     if "messages" in st.session_state:
         for message in st.session_state.messages:
             avatar_icon = "👤" if message["role"] == "user" else "✨"
             with st.chat_message(message["role"], avatar=avatar_icon):
                 st.markdown(message["content"])
 
-    # Input do usuário
     if prompt := st.chat_input("Como você está se sentindo hoje?"):
-        # Adiciona mensagem do usuário ao histórico e exibe
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user", avatar="👤"):
             st.markdown(prompt)
 
-        # Obtém resposta do AURA
         with st.chat_message("assistant", avatar="✨"):
-            with st.spinner("AURA está digitando..."): 
-                aura_response_text = aura_bot.interact(prompt)
-            
-            message_placeholder = st.empty()
-            full_response = ""
-            for chunk in aura_response_text.split(): 
-                full_response += chunk + " "
-                time.sleep(0.05) # Pequeno atraso
-                message_placeholder.markdown(full_response + "▌") 
-            message_placeholder.markdown(full_response.strip()) 
-
-        st.session_state.messages.append({"role": "assistant", "content": aura_response_text})
+            with st.spinner("AURA está digitando..."):
+                try:
+                    aura_response_text = aura_bot.interact(prompt)
+                    st.markdown(aura_response_text)
+                    st.session_state.messages.append({"role": "assistant", "content": aura_response_text})
+                except Exception as e:
+                    st.error(f"Erro na geração da resposta: {str(e)}")
 
         if prompt.strip().lower() in ["sair", "exit", "tchau"]:
-            st.success("Conversa encerrada e histórico salvo! Para iniciar uma nova conversa, atualize a página ou digite um novo nome se a opção aparecer.")
+            st.success("Conversa encerrada e histórico salvo! Para iniciar uma nova conversa, atualize a página ou clique no botão abaixo.")
 
-    # Botão para iniciar nova conversa (opcional)
     st.markdown("---")
     if st.button("Iniciar Nova Conversa / Trocar Usuário"):
-
-        keys_to_reset = ["user_id_confirmed", "current_user_id", "aura_bot", "messages", "welcome_message_shown"]
-        for key in keys_to_reset:
-            if key in st.session_state:
-                del st.session_state[key]
+        save_current_conversation()
+        st.session_state.clear()
         st.rerun()
