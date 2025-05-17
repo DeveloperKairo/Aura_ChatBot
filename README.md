@@ -78,6 +78,7 @@ Crie o arquivo `.env` na raiz e adicione:
 ```
 GOOGLE_API_KEY="SUA_CHAVE_API_DO_GEMINI_AQUI"
 ```
+**Para conseguir sua API KEY acesse: "https://aistudio.google.com/app/apikey"
 
 ### 3. Ambiente Virtual
 
