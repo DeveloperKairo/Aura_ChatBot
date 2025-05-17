@@ -82,7 +82,7 @@ GOOGLE_API_KEY="SUA_CHAVE_API_DO_GEMINI_AQUI"
 ### 3. Ambiente Virtual
 
 ```bash
-python -m venv venv
+py -m venv venv
 ```
 
 **Ativação (Windows):**
@@ -114,7 +114,7 @@ streamlit run app_gui.py
 Modo CLI:
 
 ```bash
-python main.py
+py main.py
 ```
 
 ---
