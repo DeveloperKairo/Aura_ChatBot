@@ -5,7 +5,7 @@
 
 **Um projeto desenvolvido com carinho para a Imersão IA da Alura em parceria com o Google Gemini!**
 
-[![Evento](https://img.shields.io/badge/Imersão%20IA-Alura%20%26%20Google-%230073E6?style=for-the-badge&logo=google&logoColor=white&labelColor=0B579B)](https://www.alura.com.br/artigos/imersao-ia?srsltid=AfmBOoqACaLd9cCtLcitX70Rx8YoH1gmmsdj8VCR0w8uvo1-0px8ldBC)
+[![Evento](https://img.shields.io/badge/Imers%C3%A3o%20IA-Alura%20%26%20Google-%230073E6?style=for-the-badge&logo=google&logoColor=white&labelColor=0B579B)](https://www.alura.com.br/artigos/imersao-ia?srsltid=AfmBOoqACaLd9cCtLcitX70Rx8YoH1gmmsdj8VCR0w8uvo1-0px8ldBC)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Gemini API](https://img.shields.io/badge/Gemini%20API-4A89F3?style=for-the-badge&logo=google-gemini&logoColor=white)](https://ai.google.dev/docs/gemini_api_overview)
 
@@ -24,41 +24,32 @@ Aqui, você pode expressar seus sentimentos, encontrar um ombro amigo digital, r
 
 Em um mundo cada vez mais conectado, mas muitas vezes solitário, AURA surge como uma luz guia. Seu propósito é:
 
-- **Ouvir sem julgamentos:** Sinta-se à vontade para compartilhar o que está em seu coração.
-- **Oferecer conforto e empatia:** Respostas pensadas para te acolher e te fazer sentir compreendido(a).
-- **Sugerir caminhos para o bem-estar:** Acesso a dicas e recursos simples, como exercícios de respiração e meditação.
-- **Lembrar da importância do autocuidado:** Pequenos lembretes para que você priorize sua saúde mental.
-- **Incentivar a busca por ajuda profissional:** Quando necessário, AURA gentilmente sugere a procura por especialistas.
-
-AURA utiliza o poder da Inteligência Artificial do Google Gemini para criar interações que buscam ser o mais humanas e compreensivas possível, sempre com foco no seu bem-estar.
+- **Ouvir sem julgamentos**
+- **Oferecer conforto e empatia**
+- **Sugerir caminhos para o bem-estar**
+- **Lembrar da importância do autocuidado**
+- **Incentivar a busca por ajuda profissional**
 
 ---
 
 ## 🚀 Funcionalidades Principais
 
-- 🗣️ **Conversas Empáticas:** Diálogos que se adaptam para oferecer suporte emocional.
-- 🧘 **Recursos de Bem-Estar:** Sugestões de exercícios de respiração, meditação e técnicas de grounding.
-- 🧠 **Memória Afetiva:** Histórico de conversas salvo localmente (com aviso de privacidade) para personalizar interações futuras e "lembrar" de você.
-- ⚠️ **Alerta de Crise:** Identificação de palavras-chave que indicam sofrimento intenso, com sugestão imediata para procurar ajuda profissional (CVV 188).
-- 💻 **Interface Simples:** Interação via linha de comando (CLI), focada na conversa.
-- 🛡️ **Privacidade em Primeiro Lugar:** Suas conversas são suas. O histórico é salvo localmente no seu computador.
+- 🗣️ Conversas Empáticas
+- 🧘 Recursos de Bem-Estar
+- 🧠 Memória Afetiva
+- ⚠️ Alerta de Crise
+- 💻 Interface Gráfica Intuitiva
+- 💾 Salvamento Automático
+- 🛡️ Privacidade em Primeiro Lugar
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-Este projeto foi construído com as seguintes tecnologias:
-
-- **Python:** Linguagem principal do projeto.
-- **Google Gemini API:** O cérebro por trás da inteligência e capacidade de conversação empática do AURA.
-- **python-dotenv:** Para gerenciar de forma segura as chaves de API.
-
-<div align="center">
-
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Gemini API](https://img.shields.io/badge/Gemini%20API-4A89F3?style=for-the-badge&logo=google-gemini&logoColor=white)](https://ai.google.dev/docs/gemini_api_overview)
-
-</div>
+- Python
+- Google Gemini API
+- Streamlit
+- python-dotenv
 
 ---
 
@@ -70,97 +61,73 @@ Este projeto foi construído com as seguintes tecnologias:
 
 ## ⚙️ Guia de Execução e Instalação
 
-Pronto para conversar com AURA? Siga os passos abaixo:
-
 ### 1. Pré-requisitos
 
-- **Python 3.9+** instalado.
-- **Git** instalado.
+- Python 3.9+
+- Git
 
 ### 2. Configuração do Ambiente
 
-1. **Clone o repositório:**
-
 ```bash
 git clone https://github.com/DeveloperKairo/Aura_ChatBot.git
-```
-
-2. **Navegue até a pasta do projeto:**
-
-```bash
 cd Aura_ChatBot
 ```
 
-3. **Crie o arquivo de ambiente `.env`:**
+Crie o arquivo `.env` na raiz e adicione:
 
-Na raiz do projeto (`Aura_ChatBot/`), crie um arquivo chamado `.env` e adicione sua chave da API do Google Gemini:
-
-```env
+```
 GOOGLE_API_KEY="SUA_CHAVE_API_DO_GEMINI_AQUI"
 ```
 
-**Para conseguir a API KEY acesse o site: https://aistudio.google.com/app/apikey
-
-*Substitua `SUA_CHAVE_API_DO_GEMINI_AQUI` pela sua chave real.*
-
-4. **(Recomendado) Crie e ative um ambiente virtual:**
+### 3. Ambiente Virtual
 
 ```bash
-py -m venv venv
+python -m venv venv
 ```
 
-- No Windows:
+**Ativação (Windows):**
 
 ```bash
 venv\Scripts\activate
 ```
-⚠️ Atenção (Windows): Se você receber uma mensagem dizendo que a execução de scripts está desabilitada, execute o PowerShell como administrador e digite:
-"Set-ExecutionPolicy RemoteSigned"
 
-- No Linux/macOS:
+**Ativação (Linux/macOS):**
 
 ```bash
 source venv/bin/activate
 ```
 
-5. **Instale as dependências:**
+### 4. Instalação das dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Executando o AURA 🚀
+### 5. Execução
 
-Com tudo pronto, execute:
+Interface gráfica (recomendada):
 
 ```bash
-py main.py
+streamlit run app_gui.py
 ```
 
-AURA irá te cumprimentar e pedir um nome ou apelido para personalizar a conversa e salvar o histórico.
+Modo CLI:
 
-### 4. Como Interagir 💬
-
-- Simplesmente digite suas mensagens e pressione Enter.
-- Para encerrar a conversa, digite `sair`
-- AURA tentará entender suas emoções e oferecer o melhor suporte possível.
+```bash
+python main.py
+```
 
 ---
 
 ## 🔒 Aviso de Privacidade
 
-Levamos sua privacidade a sério.
-
-- Suas conversas com AURA podem ser salvas localmente no seu computador, na pasta `data/user_histories/`.
-- Esses dados servem para personalizar futuras interações e permitir que AURA "se lembre" de você.
-- **Nenhum dado é compartilhado com terceiros.**
-- Você pode excluir os arquivos manualmente quando quiser (funcionalidade de exclusão via app pode ser implementada futuramente).
+- Conversas salvas localmente em `data/user_histories/`
+- Nenhum dado é compartilhado
+- Exclusão manual permitida
 
 ---
 
 ## 👨‍💻 Desenvolvido Por
-
-Este projeto foi idealizado e desenvolvido por:
 
 **Kairo Kaléo**
 
@@ -168,8 +135,6 @@ Este projeto foi idealizado e desenvolvido por:
 
 ## 🙏 Agradecimentos Especiais
 
-À **Alura** e ao **Google** pela incrível iniciativa da **Imersão IA**, que proporcionou o conhecimento e a inspiração para este projeto.
-
-Se tiver alguma dúvida ou sugestão, sinta-se à vontade para abrir uma *Issue* no repositório!
+À **Alura** e ao **Google** pela Imersão IA.
 
 **Cuide-se! ❤️**
